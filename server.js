@@ -41,6 +41,7 @@ app.post("/chat", async (req, res) => {
     const data = await response.json();
     const reply = data.choices?.[0]?.message?.content?.trim() || "Sorry, I couldn't reply right now.";
     res.json({ reply });
+
   } catch (err) {
     console.error("Server error:", err);
     res.status(500).json({ error: "Server error", detail: String(err) });
@@ -48,4 +49,4 @@ app.post("/chat", async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(f"Humnava backend running on port {port}"));
+app.listen(port, () => console.log(`Humnava backend running on port ${port}`));
